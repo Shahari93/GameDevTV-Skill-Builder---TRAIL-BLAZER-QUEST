@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -35,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void ProcessJump()
-    {       
+    {
         if (isGrounded)
         {
             jumpCounter = numberOfJumps;
@@ -46,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             velocity.y += Mathf.Sqrt(jumpHeight * -2 * gravity);
-            jumpCounter --;
+            jumpCounter--;
         }
     }
 
