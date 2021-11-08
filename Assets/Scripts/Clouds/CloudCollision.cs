@@ -9,6 +9,7 @@ public class CloudCollision : MonoBehaviour
         if (other.CompareTag(triggerTag))
         {
             gameObject.SetActive(false);
+            CloudPooler.sharedInstance.CreateNewCloud();
         }
     }
 }
