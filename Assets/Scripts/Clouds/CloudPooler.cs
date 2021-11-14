@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CloudPooler : MonoBehaviour
 {
+    [SerializeField] GameObject player;
+
     public static CloudPooler sharedInstance;
 
     public List<GameObject> pooledObject;
@@ -49,9 +51,8 @@ public class CloudPooler : MonoBehaviour
         GameObject cloud = CloudPooler.sharedInstance.GetPooledObject();
         if (cloud != null)
         {
-            cloud.transform.position = new Vector3(objectToPool.transform.position.x, objectToPool.transform.position.y, objectToPool.transform.position.z);
+            cloud.transform.position = new Vector3(Random.Range(5f, player.transform.position.x + 7f), objectToPool.transform.position.y, Random.Range(10f, objectToPool.transform.position.x));
             cloud.SetActive(true);
         }
     }
-
 }
