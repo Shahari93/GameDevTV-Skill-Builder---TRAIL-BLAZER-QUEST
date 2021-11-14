@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Cloud : MonoBehaviour
 {
-    [SerializeField] float cloudMoveSpeed = 4f;
+    [SerializeField] float cloudMoveSpeed;
     Vector3 cloupPos;
+
+    private void Start()
+    {
+        cloudMoveSpeed = Random.Range(2, 9);
+    }
 
     void Update()
     {

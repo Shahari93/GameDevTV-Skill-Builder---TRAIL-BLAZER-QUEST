@@ -9,8 +9,6 @@ public class CloudPooler : MonoBehaviour
     public GameObject objectToPool;
     public int amountToPool;
 
-    private Camera mainCam;
-
     private void Awake()
     {
         sharedInstance = this;
@@ -18,7 +16,6 @@ public class CloudPooler : MonoBehaviour
 
     private void Start()
     {
-        mainCam = Camera.main;
         SetUpObjectPool();
     }
 
@@ -29,7 +26,7 @@ public class CloudPooler : MonoBehaviour
         {
             GameObject obj = Instantiate(objectToPool);
             obj.transform.SetParent(this.transform);
-            obj.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            obj.transform.position = new Vector3(Random.Range(5f, objectToPool.transform.position.x), objectToPool.transform.position.y, Random.Range(10f, objectToPool.transform.position.x));
             obj.SetActive(true);
             pooledObject.Add(obj);
         }
@@ -52,8 +49,7 @@ public class CloudPooler : MonoBehaviour
         GameObject cloud = CloudPooler.sharedInstance.GetPooledObject();
         if (cloud != null)
         {
-            //cloud.transform.position = turret.transform.position;
-            cloud.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            cloud.transform.position = new Vector3(objectToPool.transform.position.x, objectToPool.transform.position.y, objectToPool.transform.position.z);
             cloud.SetActive(true);
         }
     }
