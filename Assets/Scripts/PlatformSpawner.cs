@@ -8,7 +8,7 @@ public class PlatformSpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(SpawnPlatforms), 3, 5);
+        InvokeRepeating(nameof(SpawnPlatforms), 5, 2);
         lastPlat = spawnablePlatforms.Count - 1;
     }
 
