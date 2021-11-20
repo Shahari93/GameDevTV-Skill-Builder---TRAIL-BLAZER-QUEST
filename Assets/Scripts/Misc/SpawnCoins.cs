@@ -17,7 +17,7 @@ public class SpawnCoins : MonoBehaviour
 
     private Vector3 RandomSpawnPoint()
     {
-        Vector3 coinSpawnPos = new Vector3(player.position.x + 6, Random.Range(-5f, 5f), player.position.z);
+        Vector3 coinSpawnPos = new Vector3(player.position.x + 6, Random.Range(player.position.y - 2.5f, player.position.y + 2.5f), player.position.z);
         return coinSpawnPos;
     }
 }

@@ -3,18 +3,23 @@ using TMPro;
 
 public class DisplayDistance : MonoBehaviour
 {
-    CheckDistanceFromStart checkDistance;
-    TMP_Text distanceText;
+    [SerializeField] CheckDistanceFromStart checkDistance;
 
-    private void Start()
-    {
-        checkDistance = FindObjectOfType<CheckDistanceFromStart>();
-        distanceText = GetComponent<TMP_Text>();
-    }
+    [SerializeField] TMP_Text distanceText;
 
     private void Update()
     {
+        DisplayScore();
+    }
+
+    private void DisplayScore()
+    {
+        DisplayText(distanceText, "Score: ");
+    }
+
+    private void DisplayText(TMP_Text txt, string scoreTxt)
+    {
         var distInInt = Mathf.Round(checkDistance.DistTraveld);
-        distanceText.text = $"Score: {distInInt.ToString()}";
+        txt.text = $"{scoreTxt} {distInInt.ToString()}";
     }
 }
