@@ -1,9 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnCoins : MonoBehaviour
 {
     [SerializeField] GameObject coins;
-    [SerializeField] PlatformSpawner platformSpawner;
+    [SerializeField] Transform player;
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(SpawnNewCoins), 2, 2);
+    }
+
+    private void SpawnNewCoins()
+    {
+        GameObject newCoin = Instantiate(coins, RandomSpawnPoint(), Quaternion.identity);
+    }
+
+    private Vector3 RandomSpawnPoint()
+    {
+        Vector3 coinSpawnPos = new Vector3(player.position.x + 6, Random.Range(-5f, 5f), player.position.z);
+        return coinSpawnPos;
+    }
 }
