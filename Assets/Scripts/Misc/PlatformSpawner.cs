@@ -35,4 +35,6 @@ public class PlatformSpawner : MonoBehaviour
 
         return newPos;
     }
+
+    // TODO: change class to work with end pos transform on platforms
 }
